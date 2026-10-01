@@ -1,10 +1,10 @@
-Employee Task Management System
+#Employee Task Management System
 
 A full-stack Employee Task Management System built with React.js, Flask, MySQL, and JWT authentication.
 
 The application provides separate access for ADMIN and EMPLOYEE users to manage employees, assign tasks, track progress, and securely manage accounts.
 
-🚀 Features
+##Features
 
 Admin
 
@@ -40,7 +40,7 @@ Change password
 
 Forgot/reset password
 
-🛠️ Tech Stack
+##Tech Stack
 
 Layer
 
@@ -82,7 +82,7 @@ API Testing
 
 Postman
 
-🏗️ Architecture
+##Architecture
 
 React Frontend
       │
@@ -98,7 +98,7 @@ Flask Backend
       ▼
 MySQL Database
 
-👥 User Roles
+##User Roles
 
 ADMIN
 
@@ -110,7 +110,7 @@ Can view assigned tasks and update the status of their own tasks.
 
 Task ownership is enforced by the backend, so employees cannot modify tasks assigned to other employees.
 
-🔐 Authentication & Security
+##Authentication & Security
 
 The application uses JWT-based authentication and role-based authorization.
 
@@ -134,7 +134,7 @@ Time-limited password reset tokens
 
 Environment variables for sensitive configuration
 
-📋 Main APIs
+ ##Main APIs
 
 Authentication
 
@@ -164,7 +164,7 @@ Employee Tasks
 GET   /api/my/tasks
 PATCH /api/my/tasks/<id>/status
 
-🗄️ Database
+##Database
 
 The application uses three main tables:
 
@@ -172,13 +172,13 @@ employees
 users
 tasks
 
-Relationships:
+##Relationships:
 
 Employee ────< Tasks
 Employee ──── User
 User ────────< Tasks
 
-📧 Email & Reports
+##Email & Reports
 
 Employee welcome emails with login credentials
 
@@ -188,9 +188,9 @@ Active Employee Task Report in PDF format
 
 Employee/task data export
 
-⚙️ Local Setup
+Local Setup
 
-Prerequisites
+##Prerequisites
 
 Python 3.x
 
@@ -232,7 +232,7 @@ Frontend:
 
 http://localhost:5173
 
-🔧 Environment Configuration
+##Environment Configuration
 
 Create:
 
