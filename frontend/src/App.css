@@ -1,0 +1,1873 @@
+/* =========================================================
+   EMPLOYEE TASK MANAGEMENT
+   PLUM + LIME DARK SAAS DESIGN SYSTEM
+========================================================= */
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #f7f3f7;
+  background: #0c080e;
+
+  /* =======================================================
+     BACKGROUNDS
+  ======================================================= */
+
+  --bg: #0c080e;
+  --bg-soft: #120b15;
+
+  --surface: #17101b;
+  --surface-soft: #1d1422;
+
+  --card: rgba(25, 16, 30, 0.88);
+
+  /* =======================================================
+     PLUM
+  ======================================================= */
+
+  --plum-900: #1a0b1d;
+  --plum-800: #2a102e;
+  --plum-700: #3d1743;
+  --plum-600: #5a2361;
+  --plum-500: #722b7c;
+  --plum-400: #9b4da5;
+  --plum-300: #c084cc;
+
+  /* =======================================================
+     LIME
+  ======================================================= */
+
+  --lime: #b7f34a;
+  --lime-bright: #c7ff5b;
+  --lime-dark: #84b82f;
+
+  /* =======================================================
+     TEXT
+  ======================================================= */
+
+  --text-primary: #f7f3f7;
+  --text-secondary: #c8bdca;
+  --text-muted: #918394;
+  --text-faint: #665969;
+
+  /* =======================================================
+     BORDERS
+  ======================================================= */
+
+  --border: rgba(192, 132, 204, 0.14);
+  --border-strong: rgba(192, 132, 204, 0.28);
+  --border-lime: rgba(183, 243, 74, 0.30);
+
+  /* =======================================================
+     STATUS
+  ======================================================= */
+
+  --success: #b7f34a;
+  --warning: #f4c95d;
+  --danger: #fb7185;
+  --info: #8dd7ff;
+
+  /* =======================================================
+     RADIUS
+  ======================================================= */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  /* =======================================================
+     SHADOWS
+  ======================================================= */
+
+  --shadow-card:
+    0 12px 40px rgba(0, 0, 0, 0.28);
+
+  --shadow-plum:
+    0 0 30px rgba(155, 77, 165, 0.16);
+
+  --shadow-lime:
+    0 0 28px rgba(183, 243, 74, 0.16);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+
+  min-width: 320px;
+  min-height: 100vh;
+
+  color: var(--text-primary);
+
+  background:
+    radial-gradient(
+      circle at 8% 0%,
+      rgba(114, 43, 124, 0.20),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(183, 243, 74, 0.045),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(90, 35, 97, 0.10),
+      transparent 32%
+    ),
+    var(--bg);
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 8px;
+
+  font-size: 32px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: -0.7px;
+
+  color: var(--text-primary);
+}
+
+h2 {
+  margin-bottom: 18px;
+
+  font-size: 21px;
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  letter-spacing: -0.2px;
+
+  color: #eee6ef;
+}
+
+h3 {
+  margin-bottom: 9px;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  font-weight: 600;
+
+  color: #ddd2df;
+}
+
+p {
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+strong {
+  color: #eee7ef;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+
+  margin: 0 auto;
+
+  padding: 32px 28px 50px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 28px;
+}
+
+.page-header p {
+  margin-bottom: 0;
+}
+
+.page-header strong {
+  color: var(--lime);
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   GLASS CARD
+========================================================= */
+
+.card {
+  position: relative;
+
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(29, 20, 34, 0.92),
+      rgba(18, 11, 21, 0.88)
+    );
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-card);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 10%;
+
+  width: 80%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(192, 132, 204, 0.38),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.stat-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin: 24px 0;
+}
+
+.stat-card {
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 19, 35, 0.88),
+      rgba(18, 11, 22, 0.80)
+    );
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--border-strong);
+
+  box-shadow: var(--shadow-plum);
+}
+
+.stat-card h3 {
+  margin-bottom: 8px;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.7px;
+}
+
+.stat-number {
+  font-size: 30px;
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  color: var(--lime);
+
+  text-shadow:
+    0 0 18px rgba(183, 243, 74, 0.12);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+  min-height: 38px;
+
+  padding: 9px 17px;
+
+  border: 1px solid transparent;
+
+  border-radius: 999px;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #171016;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--lime),
+      var(--lime-bright)
+    );
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 20px rgba(183, 243, 74, 0.12);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+
+  filter: brightness(1.05);
+
+  box-shadow:
+    0 8px 28px rgba(183, 243, 74, 0.22);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 3px rgba(183, 243, 74, 0.12),
+    0 0 22px rgba(183, 243, 74, 0.20);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.button-secondary {
+  color: #ded2e0;
+
+  background:
+    rgba(42, 25, 47, 0.85);
+
+  border-color:
+    rgba(192, 132, 204, 0.18);
+
+  box-shadow: none;
+}
+
+.button-secondary:hover {
+  background:
+    rgba(61, 31, 67, 0.90);
+
+  border-color:
+    rgba(192, 132, 204, 0.32);
+
+  box-shadow:
+    0 0 20px rgba(155, 77, 165, 0.12);
+}
+
+
+/* =========================================================
+   SUCCESS BUTTON
+========================================================= */
+
+.button-success {
+  color: #102009;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9fdb3f,
+      var(--lime)
+    );
+}
+
+
+/* =========================================================
+   DANGER BUTTON
+========================================================= */
+
+.button-danger {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #be123c,
+      #e11d48
+    );
+
+  box-shadow:
+    0 5px 18px rgba(225, 29, 72, 0.14);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group {
+  margin-bottom: 17px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #cfc2d1;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  border:
+    1px solid rgba(192, 132, 204, 0.13);
+
+  border-radius: var(--radius-sm);
+
+  background:
+    rgba(12, 8, 14, 0.76);
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-faint);
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color:
+    rgba(192, 132, 204, 0.25);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+
+  border-color:
+    rgba(183, 243, 74, 0.50);
+
+  background:
+    rgba(20, 13, 23, 0.96);
+
+  box-shadow:
+    0 0 0 3px rgba(183, 243, 74, 0.07),
+    0 0 18px rgba(183, 243, 74, 0.08);
+}
+
+input:disabled {
+  opacity: 0.50;
+
+  cursor: not-allowed;
+}
+
+textarea {
+  min-height: 100px;
+
+  resize: vertical;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+table {
+  width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  background:
+    rgba(15, 9, 18, 0.68);
+
+  border:
+    1px solid rgba(192, 132, 204, 0.12);
+
+  border-radius: var(--radius-md);
+}
+
+th,
+td {
+  padding: 13px 14px;
+
+  text-align: left;
+
+  border-bottom:
+    1px solid rgba(192, 132, 204, 0.07);
+}
+
+th {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(61, 31, 67, 0.55),
+      rgba(29, 17, 34, 0.65)
+    );
+
+  color: #d9cedc;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.65px;
+
+  white-space: nowrap;
+}
+
+td {
+  color: #cfc4d1;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+tbody tr {
+  transition:
+    background 0.15s ease;
+}
+
+tbody tr:hover {
+  background:
+    rgba(114, 43, 124, 0.08);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   TABLE BUTTONS
+========================================================= */
+
+td button {
+  min-height: 31px;
+
+  padding: 6px 12px;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+hr {
+  height: 1px;
+
+  margin: 25px 0;
+
+  border: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(192, 132, 204, 0.14),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.login-container {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 410px;
+
+  padding: 34px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(29, 18, 34, 0.94),
+      rgba(16, 9, 19, 0.90)
+    );
+
+  border:
+    1px solid rgba(192, 132, 204, 0.18);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.38),
+    0 0 55px rgba(114, 43, 124, 0.10);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.login-title {
+  margin-bottom: 8px;
+
+  font-size: 30px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: -0.7px;
+
+  color: var(--text-primary);
+}
+
+.login-title {
+  background: linear-gradient(
+    90deg,
+    var(--lime) 0%,
+    #d9f7a0 35%,
+    #ffffff 75%,
+    #ffffff 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login-card > p {
+  margin-bottom: 20px;
+
+  color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  padding: 10px 17px;
+
+  border:
+    1px solid rgba(183, 243, 74, 0.25);
+
+  border-radius: 999px;
+
+  background:
+    rgba(20, 13, 23, 0.94);
+
+  color: var(--lime);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  backdrop-filter: blur(16px);
+
+  box-shadow:
+    var(--shadow-lime);
+
+  z-index: 1000;
+}
+
+
+/* =========================================================
+   STATUS COLORS
+========================================================= */
+
+.status-active {
+  color: var(--lime);
+}
+
+.status-inactive {
+  color: var(--danger);
+}
+
+.status-completed {
+  color: var(--lime);
+}
+
+.status-progress {
+  color: var(--info);
+}
+
+.status-todo {
+  color: var(--plum-300);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .stat-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .container {
+    padding: 22px 15px 40px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .login-card {
+    padding: 26px 22px;
+  }
+
+  table {
+    display: block;
+
+    overflow-x: auto;
+  }
+}
+
+/* =========================================================
+   EMPLOYEE + TASK BACKGROUND ICONS
+========================================================= */
+
+.login-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.login-bg-icons {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-icon {
+  position: absolute;
+
+  color: var(--lime);
+
+  font-size: 48px;
+  font-weight: 700;
+
+  opacity: 0.055;
+
+  filter: blur(0.5px);
+
+  text-shadow:
+    0 0 25px rgba(183, 243, 74, 0.35);
+
+  animation: iconFloat 12s ease-in-out infinite alternate;
+}
+
+/* Positions */
+
+.icon-1 {
+  top: 12%;
+  left: 12%;
+  font-size: 58px;
+  animation-delay: -2s;
+}
+
+.icon-2 {
+  top: 25%;
+  left: 30%;
+  font-size: 42px;
+  animation-delay: -5s;
+}
+
+.icon-3 {
+  top: 10%;
+  right: 14%;
+  font-size: 62px;
+  animation-delay: -7s;
+}
+
+.icon-4 {
+  bottom: 15%;
+  left: 10%;
+  font-size: 64px;
+  animation-delay: -4s;
+}
+
+.icon-5 {
+  bottom: 28%;
+  left: 34%;
+  font-size: 40px;
+  animation-delay: -8s;
+}
+
+.icon-6 {
+  bottom: 12%;
+  right: 12%;
+  font-size: 58px;
+  animation-delay: -3s;
+}
+
+.icon-7 {
+  top: 48%;
+  right: 8%;
+  font-size: 46px;
+  animation-delay: -6s;
+}
+
+.icon-8 {
+  top: 68%;
+  left: 20%;
+  font-size: 52px;
+  animation-delay: -1s;
+}
+
+@keyframes iconFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-4deg);
+  }
+
+  50% {
+    transform: translate3d(12px, -18px, 0) rotate(3deg);
+  }
+
+  100% {
+    transform: translate3d(-10px, 12px, 0) rotate(-2deg);
+  }
+}
+
+.login-card {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-icon {
+    animation: none;
+  }
+}
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 16px;
+
+  border-radius: 12px;
+
+  background: rgba(183, 243, 74, 0.08);
+
+  color: var(--lime);
+
+  font-size: 22px;
+
+  border: 1px solid rgba(183, 243, 74, 0.15);
+
+  box-shadow:
+    0 0 20px rgba(183, 243, 74, 0.06);
+}
+
+.stat-card p {
+  margin-top: 8px;
+
+  color: var(--text-muted);
+
+  font-size: 13px;
+}
+/* =========================================================
+   EMPLOYEES PAGE
+========================================================= */
+
+.employees-page {
+  min-height: 100vh;
+
+  padding: 42px 5vw 60px;
+
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(114, 43, 124, 0.12),
+      transparent 35%
+    ),
+    var(--background);
+}
+
+/* Page Header */
+
+.employees-page .page-header {
+  max-width: 1180px;
+
+  margin: 0 auto 28px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.employees-page .page-header h1 {
+  margin: 4px 0 8px;
+
+  font-size: 36px;
+  line-height: 1.1;
+
+  letter-spacing: -0.035em;
+}
+
+.page-description {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+/* Align Employees page back button with the page content */
+.employees-page .page-header > div {
+  text-align: left;
+}
+
+.employees-page .back-button {
+  display: block;
+  margin-left: 0;
+  text-align: left;
+}
+
+/* Message */
+
+.page-message {
+  max-width: 1180px;
+
+  margin: 0 auto 20px;
+
+  padding: 12px 16px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(183, 243, 74, 0.05);
+
+  border:
+    1px solid rgba(183, 243, 74, 0.12);
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   ADD / EDIT FORM CARD
+========================================================= */
+
+.form-card {
+  max-width: 1180px;
+
+  margin: 0 auto 28px;
+
+  padding: 30px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(32, 21, 34, 0.9),
+      rgba(20, 13, 22, 0.84)
+    );
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.22);
+
+  animation: formAppear 0.22s ease-out;
+}
+
+@keyframes formAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-card-header {
+  margin-bottom: 26px;
+
+  padding-bottom: 20px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+.form-card-header h2 {
+  margin: 0;
+
+  font-size: 24px;
+
+  letter-spacing: -0.025em;
+}
+
+.form-card-header p:last-child {
+  margin: 7px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   EMPLOYEE FORM GRID
+========================================================= */
+
+.employee-form {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  column-gap: 22px;
+  row-gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.form-field label {
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+
+  min-height: 46px;
+
+  padding: 11px 13px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 11px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color: var(--text-primary);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-field input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-field input:hover,
+.form-field select:hover {
+  border-color:
+    rgba(255, 255, 255, 0.13);
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+
+  border-color:
+    rgba(183, 243, 74, 0.45);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  box-shadow:
+    0 0 0 3px rgba(183, 243, 74, 0.06);
+}
+
+.form-field input:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+}
+
+.form-field small {
+  margin-top: -2px;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+}
+
+/* Make form actions span entire row */
+
+.form-actions {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 6px;
+
+  padding-top: 22px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================================
+   EMPLOYEE LIST
+========================================================= */
+
+.employee-list-card {
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 22px;
+
+  background:
+    rgba(23, 16, 25, 0.78);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.18);
+
+  overflow: hidden;
+}
+
+.list-header {
+  padding: 26px 28px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+.list-header h2 {
+  margin: 0;
+
+  font-size: 21px;
+
+  letter-spacing: -0.02em;
+}
+
+.list-header p:last-child {
+  margin: 6px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+}
+
+.table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 850px;
+}
+
+.data-table th {
+  padding: 14px 18px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+  font-weight: 750;
+
+  letter-spacing: 0.07em;
+
+  text-align: left;
+
+  text-transform: uppercase;
+}
+
+.data-table td {
+  padding: 16px 18px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.045);
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+}
+
+.data-table tbody tr {
+  transition:
+    background 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+  background:
+    rgba(183, 243, 74, 0.025);
+}
+
+.data-table td strong {
+  color: var(--text-primary);
+
+  font-weight: 650;
+}
+
+.employee-code {
+  color: var(--lime);
+
+  font-weight: 700;
+
+  font-size: 11px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.05em;
+}
+
+.status-active {
+  background:
+    rgba(183, 243, 74, 0.08);
+
+  color: var(--lime);
+
+  border:
+    1px solid rgba(183, 243, 74, 0.13);
+}
+
+.status-inactive {
+  background:
+    rgba(255, 100, 100, 0.07);
+
+  color: #ff9b9b;
+
+  border:
+    1px solid rgba(255, 100, 100, 0.12);
+}
+
+.table-action-button {
+  padding: 7px 13px;
+
+  border:
+    1px solid rgba(183, 243, 74, 0.14);
+
+  border-radius: 8px;
+
+  background:
+    rgba(114, 43, 124, 0.22);
+
+  color: var(--text-primary);
+
+  font-size: 11px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.table-action-button:hover {
+  background:
+    rgba(114, 43, 124, 0.42);
+
+  border-color:
+    rgba(183, 243, 74, 0.3);
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+  position: fixed;
+
+  top: 24px;
+  right: 24px;
+
+  z-index: 1000;
+
+  padding: 13px 18px;
+
+  border-radius: 12px;
+
+  background:
+    #1b2510;
+
+  border:
+    1px solid rgba(183, 243, 74, 0.2);
+
+  color: var(--lime);
+
+  font-size: 12px;
+  font-weight: 650;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.35);
+
+  animation: toastAppear 0.2s ease-out;
+}
+
+@keyframes toastAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE EMPLOYEE FORM
+========================================================= */
+
+@media (max-width: 700px) {
+  .employees-page {
+    padding: 30px 16px 50px;
+  }
+
+  .employees-page .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .employee-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 22px;
+  }
+
+  .form-actions {
+    justify-content: stretch;
+  }
+
+  .form-actions button {
+    flex: 1;
+  }
+
+  .employee-list-card {
+    border-radius: 16px;
+  }
+
+  .list-header {
+    padding: 22px;
+  }
+}
+
+/* =========================================================
+   TASKS PAGE
+========================================================= */
+
+.tasks-page {
+  min-height: 100vh;
+  padding: 42px 5vw 60px;
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(114, 43, 124, 0.12),
+      transparent 35%
+    ),
+    var(--background);
+}
+
+.tasks-page .page-header {
+  max-width: 1180px;
+  margin: 0 auto 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.tasks-page .page-header h1 {
+  margin: 4px 0 8px;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+/* =========================================================
+   TASK FORM
+========================================================= */
+
+.task-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 22px;
+  row-gap: 20px;
+}
+
+.task-title-field,
+.task-description-field {
+  grid-column: 1 / -1;
+}
+
+.task-form textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--text-primary);
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.5;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.task-form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.task-form textarea:hover {
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.task-form textarea:focus {
+  outline: none;
+  border-color: rgba(183, 243, 74, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 0 0 3px rgba(183, 243, 74, 0.06);
+}
+
+/* =========================================================
+   TASK LIST
+========================================================= */
+
+.task-list-card {
+  max-width: 1180px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 22px;
+  background: rgba(23, 16, 25, 0.78);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.table-delete-button {
+  padding: 7px 13px;
+  border: 1px solid rgba(255, 100, 100, 0.15);
+  border-radius: 8px;
+  background: rgba(255, 100, 100, 0.06);
+  color: #ff9b9b;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.table-delete-button:hover {
+  background: rgba(255, 100, 100, 0.12);
+  border-color: rgba(255, 100, 100, 0.25);
+}
+
+@media (max-width: 700px) {
+
+  .tasks-page {
+    padding: 30px 16px 50px;
+  }
+
+  .tasks-page .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-form {
+    grid-template-columns: 1fr;
+  }
+
+  .task-title-field,
+  .task-description-field {
+    grid-column: auto;
+  }
+
+  .task-list-card {
+    border-radius: 16px;
+  }
+}
+
+.employee-dashboard .stat-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.employee-dashboard .stat-card {
+  width: 320px;
+}
+.employee-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.export-dropdown {
+  position: relative;
+}
+
+.export-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 170px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: #171019;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.export-menu button {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  text-align: left;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.export-menu button:hover {
+  background: rgba(183, 243, 74, 0.08);
+  color: var(--lime);
+}
+
+@media (max-width: 700px) {
+  .employee-header-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .export-dropdown {
+    width: 100%;
+  }
+
+  .employee-header-actions > button,
+  .export-dropdown > button {
+    width: 100%;
+  }
+
+  .export-menu {
+    left: 0;
+    right: auto;
+  }
+}
+.add-employee-dropdown {
+  position: relative;
+}
+
+.add-employee-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 190px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: #171019;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.add-employee-menu button,
+.upload-menu-item {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  text-align: left;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.add-employee-menu button:hover,
+.upload-menu-item:hover {
+  background: rgba(183, 243, 74, 0.08);
+  color: var(--lime);
+}
+
+.upload-menu-item {
+  position: relative;
+}
+
+.upload-menu-item input {
+  display: none;
+}
+
+.dashboard-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.forgot-password-link {
+  display: block;
+  width: auto;
+  margin: 12px auto 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--lime);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.forgot-password-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.forgot-password-modal {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  padding: 32px;
+  border: 1px solid rgba(183, 243, 74, 0.18);
+  border-radius: 20px;
+  background: #171019;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+}
+
+.forgot-password-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #aaa;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.forgot-password-close:hover {
+  color: var(--lime);
+}
+
+.forgot-password-icon {
+  margin-bottom: 12px;
+  font-size: 32px;
+}
+
+.forgot-password-modal h2 {
+  margin: 0 0 8px;
+}
+
+.forgot-password-modal > p {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.forgot-password-message {
+  margin-top: 16px;
+  color: var(--lime);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.forgot-password-expiry {
+  margin-top: 18px !important;
+  font-size: 12px;
+  color: #999 !important;
+}
+
+.forgot-password-cancel {
+  width: 100%;
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
